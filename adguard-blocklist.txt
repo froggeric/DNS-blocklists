@@ -1,0 +1,33 @@
+||advertising.apple.com^
+||banners.itunes.apple.com^
+||iad.apple.com^ 
+||iadcontent.apple.com^
+||iadmoo.apple.com^
+||iadworkbench.apple.com^ 
+||launch.apple.com^ 
+||metrics.apple.com^
+||securemetrics.apple.com^
+
+||iadsdk.apple.com^
+! ||news.iadsdk.apple.com^
+! ||ca.iadsdk.apple.com^ 
+! ||cf.iadsdk.apple.com^ 
+! ||cs.iadsdk.apple.com^ 
+! ||su.iadsdk.apple.com^ 
+! ||tr.iadsdk.apple.com^ 
+! ||ut.iadsdk.apple.com^ 
+
+||comscoreresearch.*^
+! ||apple.comscoreresearch.com^
+
+||qwapi.apple.com^
+! ||iadctest.qwapi.com^
+
+||advp.apple.com^
+! ||ls.advp.apple.com^ 
+! ||proxy.advp.apple.com^ 
+! ||webproxy.advp.apple.com^
+
+||iad-apple.com*^
+! ||webproxy-advp.iad-apple.com^
+! ||webproxy-advp.iad-apple.com.akadns.net^
