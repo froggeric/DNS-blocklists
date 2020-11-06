@@ -1,13 +1,22 @@
+! Title: No Apple ads
+! Version: 20201106.1
+! Description: Block Apple advertising on Apple devices.
+! Adblock format compatible with AdGuard Home.
+! Information gathered from multiple adblocking forums, and Apple official SSL certificates.
+
 ||advertising.apple.com^
 ||banners.itunes.apple.com^
 ||iad.apple.com^ 
 ||iadcontent.apple.com^
+||iadctest.qwapi.com^
 ||iadmoo.apple.com^
 ||iadworkbench.apple.com^ 
 ||launch.apple.com^ 
 ||metrics.apple.com^
+||qwapi.apple.com^
 ||securemetrics.apple.com^
 
+! multiple known subdomains are covered by the definition below
 ||iadsdk.apple.com^
 ! ||news.iadsdk.apple.com^
 ! ||ca.iadsdk.apple.com^ 
@@ -17,17 +26,17 @@
 ! ||tr.iadsdk.apple.com^ 
 ! ||ut.iadsdk.apple.com^ 
 
+! comscoreresearch is used for analystics for other customers than Apple, and uses several tld; this blocks them all
 ||comscoreresearch.*^
 ! ||apple.comscoreresearch.com^
 
-||qwapi.apple.com^
-! ||iadctest.qwapi.com^
-
+! multiple known subdomains are covered by the definition below
 ||advp.apple.com^
 ! ||ls.advp.apple.com^ 
 ! ||proxy.advp.apple.com^ 
 ! ||webproxy.advp.apple.com^
 
+! multiple known domains are covered by the definition below; also blocks other potential candidates that would use a distribution network
 ||iad-apple.com*^
 ! ||webproxy-advp.iad-apple.com^
 ! ||webproxy-advp.iad-apple.com.akadns.net^
