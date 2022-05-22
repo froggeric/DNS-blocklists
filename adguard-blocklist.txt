@@ -1,5 +1,5 @@
 ! Title: No Apple ads
-! Version: 20201106.1
+! Version: 20220522.1
 ! Description: Block Apple advertising on Apple devices.
 ! Adblock format compatible with AdGuard Home.
 ! Information gathered from multiple adblocking forums, and Apple official SSL certificates.
