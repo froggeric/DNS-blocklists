@@ -1,6 +1,8 @@
+# DNS blocklists in adblock format for AdGuard Home
+
 # noappleads
 
-Block Apple advertising on Apple devices. Blocklist in adblock format for AdGuard home. Information collected from the following sources:
+Block Apple advertising on Apple devices. Information collected from the following sources:
 
 Subject alternative names for SSL certificate iadsdk.apple.com
 
