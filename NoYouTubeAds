@@ -1,16 +1,270 @@
-##.ad-container
-##.video-ads
-##.ytp-ad-progress-list
-=adunit&
+# Title: NoYouTubeAds
+# Description: Comprehensive YouTube ad-blocking filter list for browser extensions (uBlock Origin, AdGuard Browser Extension, AdBlock Plus, Brave, etc.). Includes DNS-level rules, element hiding, cosmetic filters, and scriptlets.
+# Version: 20260322.1
+# Last Modified: 2026-03-22
+# Source: uBlock Origin uAssets, EasyList, GoodbyeAds, OISD, AdGuard Filters
+# License: MIT
+#
+# NOTE: This list contains advanced filtering rules including scriptlets and cosmetic filters.
+# For DNS-level blockers (AdGuard Home, Pi-hole), use NoYouTubeAdsDNS instead.
+#
+# ========================================
+# SECTION 1: DNS-LEVEL DOMAIN BLOCKING
+# ========================================
+
+# === Core Google Ad Domains ===
+||2mdn.net^
 ||doubleclick.net^
-||flashtalking.com$domain=youtube.com
-||googleadservices.com
+||doubleclick.com^
 ||googlesyndication.com^
-||s0.2mdn.net/ads
+||googletagservices.com^
+||googleadservices.com^
+||googleads.com^
+
+# === DoubleClick Subdomains ===
+||ad.doubleclick.net^
+||ad-emea.doubleclick.net^
+||ad-g.doubleclick.net^
+||ads.doubleclick.net^
+||adclick.g.doubleclick.net^
+||creatives.doubleclick.net^
+||fls.doubleclick.net^
+||g.doubleclick.net^
+||googleads.g.doubleclick.net^
+||googleads2.g.doubleclick.net^
+||googleads4.g.doubleclick.net^
+||pubads.g.doubleclick.net^
+||securepubads.g.doubleclick.net^
+||stats.g.doubleclick.net^
+||static.doubleclick.net^
+||pagead.l.doubleclick.net^
+||dart.l.doubleclick.net^
+||partnerad.l.doubleclick.net^
+||m.doubleclick.net^
+||s0.doubleclick.net^
+||accounts.doubleclick.net^
+||dfp.doubleclick.net^
+||mediavisor.doubleclick.net^
+||iv.doubleclick.net^
+
+# === Google Syndication Subdomains ===
+||pagead.googlesyndication.com^
+||pagead1.googlesyndication.com^
+||pagead2.googlesyndication.com^
+||tpc.googlesyndication.com^
+||ade.googlesyndication.com^
+||c.googlesyndication.com^
+||safeframe.googlesyndication.com^
+||afs.googlesyndication.com^
+
+# === 2MDN Subdomains ===
+||s0.2mdn.net^
+||s1.2mdn.net^
+||s2.2mdn.net^
+||m.2mdn.net^
+||m1.2mdn.net^
+||static.2mdn.net^
+||gcdn.2mdn.net^
+||affiliate.2mdn.net^
+
+# === YouTube Ad-Specific Subdomains ===
+||ad.youtube.com^
+||ads.youtube.com^
+
+# === Google Ad Services ===
+||pagead2.googleadservices.com^
+||partner.googleadservices.com^
+||adservice.google^
+||afs.googleadservices.com^
+
+# === Moat Ads (YouTube Analytics) ===
+||moatads.com^
+||yt.moatads.com^
+||yts.moatads.com^
+||pixel.moatads.com^
+
+# === Innovid Ad Tracking ===
+||innovid.com^
+||dts.innovid.com^
+||s.innovid.com^
+
+# === FreeWheel Ad Tracking ===
+||fwmrm.net^
+||v.fwmrm.net^
+
+# === AdForm ===
+||adform.net^
+||files.adform.net^
+
+# === Adsafe Protected ===
+||adsafeprotected.com^
+||pixel.adsafeprotected.com^
+
+# === FastClick ===
+||fastclick.net^
+||cdn.fastclick.net^
+||media.fastclick.net^
+
+# === TubeMogul ===
+||tubemogul.com^
+||rtd.tubemogul.com^
+
+# === CC-DT Creative ===
+||cc-dt.com^
+||creative.cc-dt.com^
+
+# === FlashTalking ===
+||flashtalking.com^$domain=youtube.com
+
+# === Regional Variants ===
+||doubleclick.de^
+||doubleclick-cn.net^
+||doubleclick.host^
+||doubleclick.ne.jp^
+||doubleclickads.net^
+||doubleclickbygoogle.com^
+||doubleclicksearch.com^
+||googlesyndication-cn.com^
+||tpc.googlesyndication-cn.com^
+||googletagservices-cn.com^
+||googleadservices-cn.com^
+||googleadsserving.cn^
+||2mdn-cn.net^
+||2mdnsys.com^
+
+# ========================================
+# SECTION 2: URL PATTERN BLOCKING
+# ========================================
+
+# === YouTube Page Ads ===
 ||www.google.*/pagead$domain=youtube.com
-||www.youtube.com/[[computeEmptyGif_()]]$image
-||www.youtube.com/[[computeThumbnailUrl_(data.thumbnail)]]
-||www.youtube.com/api/stats
 ||www.youtube.com/pagead
 ||www.youtube.com/ptracking
+
+# === YouTube Ad Stats/Tracking ===
+||www.youtube.com/api/stats/ads
+||www.youtube.com/api/stats/atr
+||youtube.com/api/stats/qoe?
+||www.youtube.com/api/stats/playback$method=post
+
+# ========================================
+# SECTION 3: ELEMENT HIDING (COSMETIC FILTERS)
+# ========================================
+
+# === Masthead/Homepage Ads ===
 youtube.com###masthead-ad
+youtube.com##.ytd-two-column-browse-results-renderer > ytd-rich-grid-renderer > #masthead-ad.ytd-rich-grid-renderer
+youtube.com##.ytd-rich-item-renderer.style-scope > .ytd-rich-item-renderer > .ytd-ad-slot-renderer.style-scope
+
+# === Video Player Ads ===
+youtube.com##.video-ads
+youtube.com##.ytp-ad-progress-list
+youtube.com##.ytp-ad-module
+youtube.com##.ytp-ad-overlay-container
+youtube.com##.ytp-ad-text-overlay
+
+# === Ad Containers ===
+youtube.com##.ad-container
+youtube.com##.ad-container-renderer
+youtube.com##ytd-ad-slot-renderer
+youtube.com##ytd-display-ad-renderer
+youtube.com##ytd-promoted-sparkles-web-renderer
+youtube.com##ytd-promoted-video-renderer
+
+# === Sidebar/Merch Ads ===
+youtube.com###description-inner > ytd-merch-shelf-renderer > #main.ytd-merch-shelf-renderer
+youtube.com###shopping-timely-shelf
+youtube.com##.ytd-watch-flexy > .ytd-watch-next-secondary-results-renderer > ytd-ad-slot-renderer.ytd-watch-next-secondary-results-renderer
+youtube.com##.ytd-watch-flexy > ytd-merch-shelf-renderer > #main.ytd-merch-shelf-renderer
+
+# === Search Results Ads ===
+youtube.com##.ytd-section-list-renderer > .ytd-item-section-renderer > ytd-search-pyv-renderer.ytd-item-section-renderer
+youtube.com##ytd-item-section-renderer > .ytd-item-section-renderer > ytd-ad-slot-renderer.style-scope
+
+# === Grid Ads ===
+youtube.com##.grid.ytd-browse > #primary > .style-scope > .ytd-rich-grid-renderer > .ytd-rich-grid-renderer > .ytd-ad-slot-renderer
+
+# === Shorts Ads ===
+youtube.com###shorts-inner-container > .ytd-shorts:has(> .ytd-reel-video-renderer > ytd-ad-slot-renderer)
+youtube.com##.ytReelMetapanelViewModelHost > .ytReelMetapanelViewModelMetapanelItem > .ytShortsSuggestedActionViewModelStaticHost
+
+# === Related/Recommended Ads ===
+youtube.com##ytd-rich-item-renderer:has(> #content > ytd-ad-slot-renderer)
+
+# === Sponsored Content ===
+youtube.com##.ytp-suggested-action > .ytp-suggested-action-badge
+
+# === Mobile YouTube Ads ===
+m.youtube.com##lazy-list > ad-slot-renderer
+m.youtube.com##ytm-companion-slot[data-content-type] > ytm-companion-ad-renderer
+m.youtube.com##ytm-rich-item-renderer > ad-slot-renderer
+
+# === General Ad Element Hiding ===
+##.masthead-ad
+##.masthead-ads
+##.video-ads
+##.video-ads-container
+##.video-ads-wrapper
+
+# ========================================
+# SECTION 4: SCRIPTLET INJECTIONS (uBlock Origin)
+# ========================================
+
+# === Remove Ad Placements from Player Response ===
+youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots legacyImportant)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.playerAds, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adSlots, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
+m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
+
+# === Remove Ad Placements via Fetch/XHR ===
+www.youtube.com##+js(trusted-replace-fetch-response, '"adPlacements"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
+www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
+www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
+
+# === Shorts Ad Removal ===
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune-fetch-response, reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd, , propsToMatch, url:/reel_watch_sequence?)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, entries.[-].command.reelWatchEndpoint.adClientParams.isAd)
+
+# === JSON Prune for Player ===
+www.youtube.com##+js(json-prune-fetch-response, adPlacements adSlots playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.adSlots, , propsToMatch, /player?)
+www.youtube.com##+js(json-prune-fetch-response, adPlacements adSlots playerResponse.adPlacements playerResponse.adSlots, , propsToMatch, /playlist?)
+www.youtube.com##+js(json-prune-xhr-response, adPlacements adSlots playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.adSlots, , propsToMatch, /\/player(?:\?.+)?$/)
+
+# ========================================
+# SECTION 5: URL REPLACE RULES
+# ========================================
+
+# === Replace Ad Placements in Player Response ===
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/playlist?list=$xhr,1p,replace=/"adSlots"/"no_ads"/
+||www.youtube.com/watch?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/watch?$xhr,1p,replace=/"adSlots"/"no_ads"/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||www.youtube.com/youtubei/v1/player?$xhr,1p,replace=/"adSlots"/"no_ads"/
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adSlots"/"no_ads"/
+
+# ========================================
+# SECTION 6: TV/Embedded YOUTUBE
+# ========================================
+
+# === TV YouTube ===
+tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
+
+# === Google Video Ads (TVHTML5) ===
+||googlevideo.com/initplayback?source=youtube&*c=TVHTML5&*oad=$xhr,domain=youtube.com
+
+# ========================================
+# SECTION 7: EXCEPTIONS
+# ========================================
+
+# Allow video-ads class on ads.google.com (not YouTube)
+ads.google.com,youtube.com#@#.video-ads
+
+# ========================================
+# END OF FILTER LIST
+# ========================================

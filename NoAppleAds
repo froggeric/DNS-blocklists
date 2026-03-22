@@ -1,42 +1,163 @@
 ! Title: No Apple ads
-! Version: 20220522.1
+! Version: 20260322.1
 ! Description: Block Apple advertising on Apple devices.
-! Adblock format compatible with AdGuard Home.
-! Information gathered from multiple adblocking forums, and Apple official SSL certificates.
+! Full Adblock syntax for browser extensions (uBlock Origin, AdGuard browser extension, etc.)
+! Includes DNS-level blocking rules plus element hiding and cosmetic filters.
+! For DNS-level blockers (AdGuard Home, Pi-hole), use NoAppleAdsDNS.
+! Information gathered from multiple adblocking forums, Apple official SSL certificates,
+! NextDNS native tracking domains, HaGeZi DNS blocklists, and v2fly domain lists.
 
+! ========================================
+! SECTION 1: DNS-Level Blocking Rules
+! ========================================
+
+! === Core Apple Advertising Domains ===
 ||advertising.apple.com^
-||banners.itunes.apple.com^
-||iad.apple.com^ 
+||iad.apple.com^
+||iadsdk.apple.com^
+||api-adservices.apple.com^
+
+! === Apple Ads Attribution & SDK Subdomains ===
+||ca.iadsdk.apple.com^
+||news.iadsdk.apple.com^
+||cf.iadsdk.apple.com^
+||cs.iadsdk.apple.com^
+||su.iadsdk.apple.com^
+||tr.iadsdk.apple.com^
+||ut.iadsdk.apple.com^
+
+! === iAd Content & Workbench ===
 ||iadcontent.apple.com^
-||iadctest.qwapi.com^
 ||iadmoo.apple.com^
-||iadworkbench.apple.com^ 
-||launch.apple.com^ 
+||iadworkbench.apple.com^
+||launch.apple.com^
+
+! === Metrics & Analytics ===
+||securemetrics.apple.com^
+||books-analytics-events.apple.com^
+||axm-telemetry.apple.com^
+
+! === Third-party Apple Ad Domains ===
+||iadctest.qwapi.com^
+
+! === Deprecated/Legacy Domains (may no longer resolve but kept for completeness) ===
+||banners.itunes.apple.com^
 ||metrics.apple.com^
 ||qwapi.apple.com^
-||securemetrics.apple.com^
-
-! multiple known subdomains are covered by the definition below
-||iadsdk.apple.com^
-! ||news.iadsdk.apple.com^
-! ||ca.iadsdk.apple.com^ 
-! ||cf.iadsdk.apple.com^ 
-! ||cs.iadsdk.apple.com^ 
-! ||su.iadsdk.apple.com^ 
-! ||tr.iadsdk.apple.com^ 
-! ||ut.iadsdk.apple.com^ 
-
-! comscoreresearch is used for analystics for other customers than Apple, and uses several tld; this blocks them all
-||comscoreresearch.*^
-! ||apple.comscoreresearch.com^
-
-! multiple known subdomains are covered by the definition below
 ||advp.apple.com^
-! ||ls.advp.apple.com^ 
-! ||proxy.advp.apple.com^ 
-! ||webproxy.advp.apple.com^
+||ls.advp.apple.com^
+||proxy.advp.apple.com^
+||webproxy.advp.apple.com^
 
-! multiple known domains are covered by the definition below; also blocks other potential candidates that would use a distribution network
-||iad-apple.com*^
-! ||webproxy-advp.iad-apple.com^
-! ||webproxy-advp.iad-apple.com.akadns.net^
+! === iAd CDN Domains ===
+||iad-apple.com^
+||webproxy-advp.iad-apple.com^
+
+! === Comscore Analytics (used by Apple for ad measurement) ===
+||comscoreresearch.com^
+||comscoreresearch.net^
+||apple.comscoreresearch.com^
+
+! ========================================
+! SECTION 2: URL Pattern Rules
+! ========================================
+
+! Block Apple advertising pixels and beacons
+||apple.com^$ping,xmlhttprequest,domain=apple.com
+||apple.com/*/ad^
+||apple.com/*/ads^
+||apple.com/*/advertising^
+
+! Block ad-related paths on iTunes
+||itunes.apple.com^$popup,domain=apple.com
+||itunes.apple.com/*/banner^
+
+! ========================================
+! SECTION 3: Element Hiding Rules
+! ========================================
+
+! Apple.com - Promotional banners and ad containers
+apple.com##.ad-container
+apple.com##.ad-banner
+apple.com##.promotional-banner
+apple.com##.marketing-banner
+apple.com##.ad-wrapper
+apple.com##[data-ad]
+apple.com##[data-ad-slot]
+apple.com##[id*="ad-banner"]
+apple.com##[class*="ad-container"]
+apple.com##[class*="promotional"]
+
+! Apple.com - Store page promotional sections
+apple.com##.section-promo
+apple.com##.module-promo
+apple.com##.banner-promo
+apple.com##.promo-card
+apple.com##.as-promo
+
+! iTunes Web Player - Banner ads
+itunes.apple.com##.banner-ad
+itunes.apple.com##.ad-banner
+itunes.apple.com##.promotional-content
+itunes.apple.com##[class*="banner-ad"]
+
+! Apps.apple.com - App Store web interface ads
+apps.apple.com##.banner-ad
+apps.apple.com##.ad-container
+apps.apple.com##[data-ad]
+apps.apple.com##.promotional-banner
+apps.apple.com##.l-content-banner
+
+! Apple News web interface (if accessed via web)
+apple.news##.ad-container
+apple.news##.ad-banner
+apple.news##[data-ad]
+apple.news##.promotional-content
+
+! Support pages - Promotional content
+support.apple.com##.promo-banner
+support.apple.com##.promotional-content
+
+! ========================================
+! SECTION 4: Extended CSS Selectors
+! ========================================
+
+! Hide elements containing "ad" or "promo" in class/id (generic)
+apple.com##:xpath(//*[contains(@class, 'ad-') and not(contains(@class, 'pad'))])
+apple.com##:xpath(//*[contains(@id, 'ad-') and not(contains(@id, 'pad'))])
+
+! Hide sponsored/promotional sections
+apple.com##.section-sponsored
+apple.com##.sponsored-content
+
+! ========================================
+! SECTION 5: Scriptlet Rules
+! ========================================
+
+! Prevent ad tracking scripts from loading
+apple.com#$#prevent-fetch api-adservices.apple.com
+apple.com#$#prevent-fetch iadsdk.apple.com
+apple.com#$#prevent-xhr api-adservices.apple.com
+apple.com#$#prevent-xhr iadsdk.apple.com
+
+! Remove ad-related cookies
+apple.com#$#prevent-set-cookie iad
+apple.com#$#prevent-set-cookie ads
+apple.com#$#prevent-set-cookie advertising
+
+! ========================================
+! SECTION 6: Exception Rules
+! ========================================
+
+! Allow essential Apple services that might be caught by generic rules
+@@||api.smoot.apple.com^$~third-party
+@@||xp.apple.com^$~third-party
+
+! ========================================
+! Notes:
+! - Apple's ads primarily appear in native apps (App Store, Apple News, Stocks)
+!   which cannot be filtered by browser extensions
+! - DNS-level blocking (NoAppleAds) is more effective for native apps
+! - This filter is primarily for blocking Apple ads on Apple's web properties
+! - For full protection, use both DNS-level blocking and this filter
+! ========================================

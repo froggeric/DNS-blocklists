@@ -1,0 +1,133 @@
+# Title: NoYouTubeAds (DNS)
+# Description: DNS-level blocklist for YouTube advertising domains. For use with AdGuard Home, Pi-hole, or other DNS-level ad blockers.
+# Version: 20260322.1
+# Last Modified: 2026-03-22
+# Source: https://github.com/jerryn70/GoodbyeAds, https://big.oisd.nl, uBlock Origin, EasyList
+# License: MIT
+#
+# NOTE: This list only contains DNS-blockable domains (||domain^ syntax).
+# For browser extension use with element hiding and scriptlets, use NoYouTubeAds instead.
+#
+# IMPORTANT: YouTube ads are increasingly served from the same domains as content.
+# DNS-level blocking alone cannot block all YouTube video ads. For complete
+# ad blocking, use a browser extension like uBlock Origin with NoYouTubeAdsFull.
+#
+# === Core Google Ad Domains ===
+||2mdn.net^
+||doubleclick.net^
+||doubleclick.com^
+||googlesyndication.com^
+||googletagservices.com^
+||googleadservices.com^
+||googleads.com^
+#
+# === DoubleClick Subdomains ===
+||ad.doubleclick.net^
+||ad-emea.doubleclick.net^
+||ad-g.doubleclick.net^
+||ads.doubleclick.net^
+||adclick.g.doubleclick.net^
+||creatives.doubleclick.net^
+||fls.doubleclick.net^
+||g.doubleclick.net^
+||googleads.g.doubleclick.net^
+||googleads2.g.doubleclick.net^
+||googleads4.g.doubleclick.net^
+||pubads.g.doubleclick.net^
+||securepubads.g.doubleclick.net^
+||stats.g.doubleclick.net^
+||static.doubleclick.net^
+||pagead.l.doubleclick.net^
+||dart.l.doubleclick.net^
+||partnerad.l.doubleclick.net^
+||m.doubleclick.net^
+||s0.doubleclick.net^
+||accounts.doubleclick.net^
+||dfp.doubleclick.net^
+||mediavisor.doubleclick.net^
+||iv.doubleclick.net^
+#
+# === Google Syndication Subdomains ===
+||pagead.googlesyndication.com^
+||pagead1.googlesyndication.com^
+||pagead2.googlesyndication.com^
+||tpc.googlesyndication.com^
+||ade.googlesyndication.com^
+||c.googlesyndication.com^
+||safeframe.googlesyndication.com^
+||afs.googlesyndication.com^
+#
+# === 2MDN Subdomains ===
+||s0.2mdn.net^
+||s1.2mdn.net^
+||s2.2mdn.net^
+||m.2mdn.net^
+||m1.2mdn.net^
+||static.2mdn.net^
+||gcdn.2mdn.net^
+||affiliate.2mdn.net^
+#
+# === YouTube Ad-Specific Subdomains ===
+||ad.youtube.com^
+||ads.youtube.com^
+#
+# === Google Ad Services ===
+||pagead2.googleadservices.com^
+||partner.googleadservices.com^
+||adservice.google^
+||afs.googleadservices.com^
+#
+# === Moat Ads (YouTube Analytics) ===
+||moatads.com^
+||yt.moatads.com^
+||yts.moatads.com^
+||pixel.moatads.com^
+#
+# === Innovid Ad Tracking ===
+||innovid.com^
+||dts.innovid.com^
+||s.innovid.com^
+#
+# === FreeWheel Ad Tracking ===
+||fwmrm.net^
+||v.fwmrm.net^
+#
+# === AdForm ===
+||adform.net^
+||files.adform.net^
+#
+# === Adsafe Protected ===
+||adsafeprotected.com^
+||pixel.adsafeprotected.com^
+#
+# === FastClick ===
+||fastclick.net^
+||cdn.fastclick.net^
+||media.fastclick.net^
+#
+# === TubeMogul ===
+||tubemogul.com^
+||rtd.tubemogul.com^
+#
+# === CC-DT Creative ===
+||cc-dt.com^
+||creative.cc-dt.com^
+#
+# === FlashTalking ===
+||flashtalking.com^
+#
+# === Regional DoubleClick Variants ===
+||doubleclick.de^
+||doubleclick-cn.net^
+||doubleclick.host^
+||doubleclick.ne.jp^
+||doubleclickads.net^
+||doubleclickbygoogle.com^
+||doubleclicksearch.com^
+||googlesyndication-cn.com^
+||tpc.googlesyndication-cn.com^
+||googletagservices-cn.com^
+||googleadservices-cn.com^
+||googleadsserving.cn^
+||2mdn-cn.net^
+||2mdnsys.com^

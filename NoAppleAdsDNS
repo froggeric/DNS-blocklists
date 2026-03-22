@@ -1,0 +1,54 @@
+! Title: No Apple ads (DNS)
+! Version: 20260322.1
+! Description: Block Apple advertising on Apple devices (DNS-level only).
+! For AdGuard Home, Pi-hole, or other DNS-level blockers.
+! For browser extensions, use NoAppleAds (full syntax version).
+! Information gathered from multiple adblocking forums, Apple official SSL certificates,
+! NextDNS native tracking domains, HaGeZi DNS blocklists, and v2fly domain lists.
+
+! === Core Apple Advertising Domains ===
+||advertising.apple.com^
+||iad.apple.com^
+||iadsdk.apple.com^
+||api-adservices.apple.com^
+
+! === Apple Ads Attribution & SDK Subdomains ===
+||ca.iadsdk.apple.com^
+||news.iadsdk.apple.com^
+||cf.iadsdk.apple.com^
+||cs.iadsdk.apple.com^
+||su.iadsdk.apple.com^
+||tr.iadsdk.apple.com^
+||ut.iadsdk.apple.com^
+
+! === iAd Content & Workbench ===
+||iadcontent.apple.com^
+||iadmoo.apple.com^
+||iadworkbench.apple.com^
+||launch.apple.com^
+
+! === Metrics & Analytics ===
+||securemetrics.apple.com^
+||books-analytics-events.apple.com^
+||axm-telemetry.apple.com^
+
+! === Third-party Apple Ad Domains ===
+||iadctest.qwapi.com^
+
+! === Deprecated/Legacy Domains (may no longer resolve but kept for completeness) ===
+||banners.itunes.apple.com^
+||metrics.apple.com^
+||qwapi.apple.com^
+||advp.apple.com^
+||ls.advp.apple.com^
+||proxy.advp.apple.com^
+||webproxy.advp.apple.com^
+
+! === iAd CDN Domains ===
+||iad-apple.com^
+||webproxy-advp.iad-apple.com^
+
+! === Comscore Analytics (used by Apple for ad measurement) ===
+||comscoreresearch.com^
+||comscoreresearch.net^
+||apple.comscoreresearch.com^
